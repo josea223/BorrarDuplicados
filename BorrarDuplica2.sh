@@ -9,7 +9,7 @@ read borrar
 
 # Listado provisional de carpetas con archivos duplicados
 echo Listado de carpetas
-echo $(ls -hl $borrar)
+ls -hl $borrar
 echo Continuar [si/no]
 read continuar_sn
 
@@ -23,12 +23,14 @@ read conservar
 
 # Listado provisional de carpetas con archivos duplicados
 echo Listado de carpetas
-echo $(ls -hl $conservar)
+ls -hl $conservar
 echo Continuar [si/no]
 read continuar_sn
 
 if [ "$touch" = 'touch' ]; then
-find $borrar/* -print -exec touch {} \;
+echo find $borrar/* -exec touch {} \;
+#find $borrar/* -print -exec touch {} \;
+find $borrar/* -exec touch {} \;
 echo Actualizada la fecha de modificación de los archivos en $borrar
 else
 #find $borrar/* -print -exec touch {} \;
