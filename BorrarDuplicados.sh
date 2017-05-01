@@ -1,4 +1,8 @@
 #!/bin/bash
+# Creo o marco los archivos del log
+touch ./logs/ArchivosAEliminar.txt
+touch ./logs/ArchivosEliminados.txt
+
 # Introduce la ruta de la carpeta a analizar
 echo Carpeta a analizar en busca de duplicados a eliminar [ruta absoluta]
 read ruta
