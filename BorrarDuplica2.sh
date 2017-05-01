@@ -4,11 +4,11 @@
 # La segunda carpeta tiene los originales ordenados.
 
 # Toca los archivos de la carpeta
-echo Carpeta con los duplicados a eliminar [ruta completa o relativa]
+echo Carpeta con los duplicados a eliminar [ruta absoluta]
 read borrar
 
-# cd borrar
-echo Escribe 'touch' para modificar la hora de cambio de los archivos de la carpeta [touch/'']
+# Opción de marcar carpeta para borrar en caso de conflicto con un duplicado en otra carpeta
+echo Escribe 'touch' para actualizar la hora de modificación de los archivos de la carpeta [touch/'']
 read touch
 if [ "$touch" = 'touch' ]; then
 find $borrar/* -print -exec touch {} \;
