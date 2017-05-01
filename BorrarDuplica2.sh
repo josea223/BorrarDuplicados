@@ -21,15 +21,21 @@ fi
 # Carpeta con los duplicados a conservar
 echo Introducir ruta de la 2a carpeta con archivos duplicados
 read conservar
-echo Acción a realizar [borrar/prueba]
-read accion
 
-# Ejecuto fdupes
-if [ "$accion" = 'borrar' ]; then
+# Listado provisional de duplicados
+echo Buscando duplicados ...
+fdupes -r "$borrar" "$conservar" > ./logs/ArchivosAEliminar.txt
+echo Archivos duplicados candidatos a ser eliminados:
+cat ./logs/ArchivosAEliminar.txt
+
+# Confirmación de borrado
+echo ¿Seguro que quieres borrar los duplicados? [si/no]
+read borrar_sn
+
+# Ejecución de fdupes y borrado de duplicados
+if [ "$borrar_sn" = 'si' ]; then
 fdupes -rdN "$borrar" "$conservar" > ./logs/ArchivosEliminados.txt
 echo Archivos eliminados:
 cat ./logs/ArchivosEliminados.txt
-else fdupes -r "$borrar" "$conservar" > ./logs/ArchivosAEliminar.txt
-echo Archivos duplicados candidatos a ser eliminados:
-cat ./logs/ArchivosAEliminar.txt
+else echo No se ha eliminado ningún archivo.
 fi
