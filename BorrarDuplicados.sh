@@ -8,8 +8,8 @@ read ruta
 echo Carpeta con duplicados a eliminar modificando su fecha de modificación [ruta relativa/'']
 read duplicados
 
-# Error ???
-#if [ ! -z "$duplicados" ] && find $ruta/$duplicados/* -print -exec touch {} \;
+# En caso de introducir una ruta relativa se modifican/marcan los candidatos a duplicados
+# Error -> if [ ! -z "$duplicados" ] && find $ruta/$duplicados/* -print -exec touch {} \;
 if [ ! -z "$duplicados" ]; then find $ruta/$duplicados/* -print -exec touch {} \;
 fi
 
