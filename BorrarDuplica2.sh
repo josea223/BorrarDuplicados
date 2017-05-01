@@ -7,9 +7,26 @@
 echo Carpeta con los duplicados a eliminar [ruta absoluta]
 read borrar
 
+# Listado provisional de carpetas con archivos duplicados
+echo Listado de carpetas
+echo $(ls -hl $borrar)
+echo Continuar [si/no]
+read continuar_sn
+
 # Opción de marcar carpeta para borrar en caso de conflicto con un duplicado en otra carpeta
 echo Escribe \'touch\' para actualizar la hora de modificación de los archivos de la carpeta [touch/\'\']
 read touch
+
+# Carpeta con los duplicados a conservar
+echo Introducir ruta de la 2a carpeta con archivos duplicados
+read conservar
+
+# Listado provisional de carpetas con archivos duplicados
+echo Listado de carpetas
+echo $(ls -hl $conservar)
+echo Continuar [si/no]
+read continuar_sn
+
 if [ "$touch" = 'touch' ]; then
 find $borrar/* -print -exec touch {} \;
 echo Actualizada la fecha de modificación de los archivos en $borrar
@@ -17,16 +34,6 @@ else
 #find $borrar/* -print -exec touch {} \;
 echo Los archivos no han sido modificados y se eliminarán según su fecha de modificación actual.
 fi
-
-# Carpeta con los duplicados a conservar
-echo Introducir ruta de la 2a carpeta con archivos duplicados
-read conservar
-
-# Listado provisional de duplicados
-echo Listado de carpetas
-echo $(ls $conservar)
-echo Continuar [si/no]
-read continuar_sn
 
 if [ "$continuar_sn" = 'si' ]; then
 echo Buscando duplicados ...
