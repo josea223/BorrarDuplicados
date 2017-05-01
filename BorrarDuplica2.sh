@@ -23,6 +23,12 @@ echo Introducir ruta de la 2a carpeta con archivos duplicados
 read conservar
 
 # Listado provisional de duplicados
+echo Listado de carpetas
+echo $(ls $conservar)
+echo Continuar [si/no]
+read continuar_sn
+
+if [ "$continuar_sn" = 'si' ]; then
 echo Buscando duplicados ...
 fdupes -r "$borrar" "$conservar" > ./logs/ArchivosAEliminar.txt
 echo Archivos duplicados candidatos a ser eliminados:
@@ -38,4 +44,5 @@ fdupes -rdN "$borrar" "$conservar" > ./logs/ArchivosEliminados.txt
 echo Archivos eliminados:
 cat ./logs/ArchivosEliminados.txt
 else echo No se ha eliminado ningún archivo.
+fi
 fi
