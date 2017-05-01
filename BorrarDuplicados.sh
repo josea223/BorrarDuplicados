@@ -7,7 +7,10 @@ read ruta
 # Evita que en caso de duplicados, aquellos en las restantes carpetas tengan priporidad para no ser eliminados.
 echo Carpeta con duplicados a eliminar modificando su fecha de modificación [ruta relativa/'']
 read duplicados
-if [ ! -z "$duplicados" ] && find $ruta/$duplicados/* -print -exec touch {} \;
+
+# Error ???
+#if [ ! -z "$duplicados" ] && find $ruta/$duplicados/* -print -exec touch {} \;
+if [ ! -z "$duplicados" ]; then find $ruta/$duplicados/* -print -exec touch {} \;
 fi
 
 # Primer análisis de duplicados y muestra en pantalla
