@@ -3,6 +3,9 @@
 # Selecciona dos carpetas donde la primera se supone que tiene los posibles duplicados.
 # La segunda carpeta tiene los originales ordenados.
 
+# Limpio la pantalla
+clear
+
 # Toca los archivos de la carpeta
 echo Carpeta con los duplicados a eliminar [ruta absoluta]
 read borrar
@@ -30,7 +33,7 @@ read continuar_sn
 if [ "$touch" = 'touch' ]; then
 echo find $borrar/* -exec touch {} \;
 #find $borrar/* -print -exec touch {} \;
-find $borrar/* -exec touch {} \;
+find $borrar/* -exec -print touch {} \; > ./logs/touch.txt
 echo Actualizada la fecha de modificación de los archivos en $borrar
 else
 #find $borrar/* -print -exec touch {} \;
