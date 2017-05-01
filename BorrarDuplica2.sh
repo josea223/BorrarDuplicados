@@ -8,7 +8,7 @@ echo Carpeta con los duplicados a eliminar [ruta absoluta]
 read borrar
 
 # Opción de marcar carpeta para borrar en caso de conflicto con un duplicado en otra carpeta
-echo Escribe 'touch' para actualizar la hora de modificación de los archivos de la carpeta [touch/'']
+echo Escribe \'touch\' para actualizar la hora de modificación de los archivos de la carpeta [touch/\'\']
 read touch
 if [ "$touch" = 'touch' ]; then
 find $borrar/* -print -exec touch {} \;
