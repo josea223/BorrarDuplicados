@@ -16,9 +16,25 @@ if [ ! -z "$salvar" ]; then
 # Borra los duplicados listados en el archivo y salva los que coinciden con la cadena detallada antes
 while read archivo
 do
-  if [ $salvar in $archivo]; then echo [+] "$archivo"
+
+# Marco las líneas vacías con un "-"
+  if [ "$archivo" = '' ]; then echo "-"
+
+# Compruebo la cadena a salvar. Si se encuentra en la ruta del archivo no se borra
+  elif [[ "$archivo" == *"$salvar"* ]]; then
+	 echo [+] "$archivo"
+# La ruta del archivo no coincide con la cadena a salvar, por lo tanto elimino el duplicado
   else
   rm -f "$archivo"
   echo [-] $archivo
   fi
 done < $listado
+
+# En el caso de que no se introduzca ninguna cadena a salvar, directamente borro los duplicados
+else
+while read archivo
+do
+rm -f "$archivo"
+echo [-] $archivo
+done < $listado
+fi
