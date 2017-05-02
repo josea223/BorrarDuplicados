@@ -1,0 +1,5 @@
+# fdupes -rf > borrar
+Genera un archivo con el listado de duplicados (la primera coincidencia no la muestra).
+Luego puedo leer el archivo y borrar los duplicados con
+while read archivo; do rm -f "$archivo"; done < borrar
+Me permite hacer un barrido primero y si me parece bien ejecuto la orden de borrado.
