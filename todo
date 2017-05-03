@@ -3,3 +3,8 @@ Genera un archivo con el listado de duplicados (la primera coincidencia no la mu
 Luego puedo leer el archivo y borrar los duplicados con
 while read archivo; do rm -f "$archivo"; done < borrar
 Me permite hacer un barrido primero y si me parece bien ejecuto la orden de borrado.
+
+# Proteger carpeta
+Generar una lista con todos los duplicados
+Luego seleccionar que duplicados eliminar y cuales dejar
+Se puede especificar una ubicación donde no se borra nada
