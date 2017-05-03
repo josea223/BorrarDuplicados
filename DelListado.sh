@@ -106,6 +106,6 @@ read listado_sn
 if [ "$listado_sn" = 'si' ]; then
 rm -f $RA_listado 2>&1
 else
-mv $RA_listado "$logs/$RR_archivar/$nombre" 2>&1
+mv $RA_listado "$RA_logs/$RR_archivar/$nombre" 2>&1
 fi
 # ---------------------------------------------------------------------

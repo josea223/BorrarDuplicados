@@ -31,9 +31,9 @@ echo Continuar [si/no]
 read continuar_sn
 
 if [ "$touch" = 'touch' ]; then
-echo find $borrar/* -exec touch {} \;
+#echo find $borrar/* -exec touch {} \;
 #find $borrar/* -print -exec touch {} \;
-find $borrar/* -exec -print touch {} \; > ./logs/touch.txt
+find $borrar/* -print -exec touch {} \; > ./logs/touch.txt
 echo Actualizada la fecha de modificación de los archivos en $borrar
 else
 #find $borrar/* -print -exec touch {} \;
